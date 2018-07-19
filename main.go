@@ -20,7 +20,7 @@ func main() {
 	}
 	file := string(buf)
 	for _, e := range os.Environ() {
-		pair := strings.Split(e, "=")
+		pair := strings.SplitN(e, "=", 2)
 		key := pair[0]
 		value := pair[1]
 		file = strings.Replace(file, "${{"+key+"}}", value, -1)
